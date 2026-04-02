@@ -1,0 +1,343 @@
+/* App & Layout */
+.appContainer {
+  min-height: 100vh;
+  background-color: rgb(241, 245, 249);
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  color: rgb(15, 23, 42);
+}
+
+.mobileWrapper {
+  width: 100%;
+  max-width: 480px;
+  background-color: rgb(250, 250, 252);
+  min-height: 100vh;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow-x: hidden;
+  border-left: 1px solid rgb(226, 232, 240);
+  border-right: 1px solid rgb(226, 232, 240);
+}
+
+.mainContent {
+  padding-bottom: 40px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: rgb(255, 255, 255);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgb(241, 245, 249);
+}
+
+.headerLeft, .headerRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: rgb(100, 116, 139);
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.iconBtn:hover {
+  color: rgb(15, 23, 42);
+}
+
+.avatarWrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgb(226, 232, 240);
+  border: 1px solid rgb(203, 213, 225);
+  overflow: hidden;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Progress Section */
+.section {
+  padding: 8px 24px;
+}
+
+.greetingBox {
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+
+.greetingRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.greetingTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.proBadge {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, rgb(15, 23, 42), rgb(51, 65, 85));
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(71, 85, 105);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgb(250, 204, 21);
+  margin-right: 6px;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.streakText {
+  color: rgb(100, 116, 139);
+  font-size: 14px;
+  margin: 0;
+}
+
+.streakHighlight {
+  font-weight: bold;
+  color: rgb(15, 23, 42);
+}
+
+.progressCard {
+  background-color: rgb(255, 255, 255);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgb(226, 232, 240);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+
+.progressLabel {
+  color: rgb(71, 85, 105);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.progressValue {
+  color: rgb(15, 23, 42);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.progressBarWrapper {
+  height: 8px;
+  width: 100%;
+  background-color: rgb(241, 245, 249);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: rgb(79, 70, 229);
+  border-radius: 9999px;
+  transition: width 1s ease-out;
+}
+
+.primaryBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgb(15, 23, 42);
+  color: rgb(255, 255, 255);
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.primaryBtn:hover {
+  background-color: rgb(51, 65, 85);
+}
+
+.primaryBtn:active {
+  transform: scale(0.98);
+}
+
+/* Scenarios */
+.sectionTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.scenarioGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.scenarioCard {
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgb(226, 232, 240);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.scenarioCard:active {
+  transform: scale(0.95);
+}
+
+.scenarioIconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scenarioCardTitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(71, 85, 105);
+  margin: 0;
+}
+
+/* Memory Chart */
+.memorySection {
+  padding: 24px;
+}
+
+.chartCard {
+  background-color: rgb(255, 255, 255);
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgb(226, 232, 240);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  height: 220px;
+}
+
+/* Reviews */
+.reviewSection {
+  padding: 8px 24px 32px 24px;
+}
+
+.reviewCount {
+  color: rgb(148, 163, 184);
+  font-weight: normal;
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.reviewList {
+  background-color: rgb(255, 255, 255);
+  border-radius: 16px;
+  border: 1px solid rgb(226, 232, 240);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.reviewItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.2s;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(241, 245, 249);
+}
+
+.reviewItem:last-child {
+  border-bottom: none;
+}
+
+.reviewItem:hover {
+  background-color: rgb(248, 250, 252);
+}
+
+.reviewWord {
+  font-family: monospace;
+  color: rgb(15, 23, 42);
+  font-weight: 500;
+  font-size: 15px;
+  margin: 0;
+}
+
+.reviewStats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.starRow {
+  display: flex;
+  gap: 2px;
+}
+
+.reviewPercentage {
+  color: rgb(100, 116, 139);
+  font-size: 12px;
+  width: 32px;
+  text-align: right;
+  margin: 0;
+}
