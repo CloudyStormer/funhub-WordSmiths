@@ -2,6 +2,7 @@
   "name": "funhub-wordsmitths",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/funhub/wordSmiths",
   "dependencies": {
     "@tanstack/react-query": "^5.96.1",
     "@testing-library/dom": "^10.4.1",
