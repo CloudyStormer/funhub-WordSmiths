@@ -1,0 +1,26 @@
+.memorySection {
+  padding: 24px;
+}
+
+.sectionTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.chartCard {
+  background-color: rgb(255, 255, 255);
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgb(226, 232, 240);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  height: 220px;
+}

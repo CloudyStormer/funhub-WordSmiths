@@ -1,0 +1,24 @@
+.appContainer {
+  min-height: 100vh;
+  background-color: rgb(241, 245, 249);
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  color: rgb(15, 23, 42);
+}
+
+.mobileWrapper {
+  width: 100%;
+  max-width: 480px;
+  background-color: rgb(250, 250, 252);
+  min-height: 100vh;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow-x: hidden;
+  border-left: 1px solid rgb(226, 232, 240);
+  border-right: 1px solid rgb(226, 232, 240);
+}
+
+.mainContent {
+  padding-bottom: 40px;
+}
