@@ -1,9 +1,9 @@
 import React from 'react';
 import { BookOpen, TrendingUp, CheckCircle2, XCircle } from 'lucide-react';
-import ProgressSection from '../../components/ProgressSection';
-import ScenarioSection from '../../components/ScenarioSection';
-import MemorySection from '../../components/MemorySection';
-import ReviewSection from '../../components/ReviewSection';
+import ProgressSection from './ProgressSection';
+import ScenarioSection from './ScenarioSection';
+import MemorySection from './MemorySection';
+import ReviewSection from './ReviewSection';
 import KanbanPage from '../Kanban';
 import styles from './index.module.scss';
 
