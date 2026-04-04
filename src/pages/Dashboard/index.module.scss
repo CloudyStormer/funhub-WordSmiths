@@ -1,10 +1,11 @@
 .appContainer {
-  min-height: 100vh;
+  height: 100vh;
   background-color: rgb(241, 245, 249);
   display: flex;
   justify-content: center;
   font-family: sans-serif;
   color: rgb(15, 23, 42);
+  overflow: auto;
 }
 
 .mobileWrapper {
