@@ -14,6 +14,36 @@
   font-weight: bold;
   color: rgb(15, 23, 42);
   margin: 0;
+  flex: 1;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.refreshBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid rgb(226, 232, 240);
+  background: rgb(255, 255, 255);
+  color: rgb(100, 116, 139);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+
+  &:hover {
+    background: rgb(238, 242, 255);
+    color: rgb(79, 70, 229);
+    border-color: rgb(199, 210, 254);
+  }
+
+  &.spinning svg {
+    animation: spin 0.5s ease-in-out;
+  }
 }
 
 .scenarioGrid {
