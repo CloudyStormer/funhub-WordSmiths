@@ -121,15 +121,15 @@ const MemorySection = () => {
               stroke="rgb(148,163,184)"
               strokeWidth={1.8}
               strokeDasharray="5 4"
-              dot={false}
-              activeDot={{ r: 3, fill: 'rgb(148,163,184)', strokeWidth: 0 }}
+              dot={{ r: 1.5, fill: 'rgb(148,163,184)', strokeWidth: 0 }}
+              activeDot={{ r: 3.5, fill: 'rgb(148,163,184)', strokeWidth: 0 }}
             />
             <Line
               type="monotone"
               dataKey="me"
               stroke="rgb(99,82,230)"
               strokeWidth={2.2}
-              dot={false}
+              dot={{ r: 2, fill: 'rgb(99,82,230)', strokeWidth: 0 }}
               activeDot={{ r: 4, fill: 'rgb(99,82,230)', strokeWidth: 0 }}
             />
           </LineChart>
