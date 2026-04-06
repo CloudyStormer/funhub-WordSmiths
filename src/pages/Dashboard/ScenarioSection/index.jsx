@@ -20,7 +20,7 @@ const pickThree = (exclude) => {
   return shuffled.slice(0, 3);
 };
 
-const ScenarioSection = () => {
+const ScenarioSection = ({ onOpenModal }) => {
   const [current, setCurrent] = useState(allScenarios.slice(0, 3));
   const [spinning, setSpinning] = useState(false);
 
@@ -51,7 +51,7 @@ const ScenarioSection = () => {
         {current.map((item, index) => {
           const Icon = item.icon;
           return (
-            <div key={item.title + index} className={styles.scenarioCard}>
+            <div key={item.title + index} className={styles.scenarioCard} onClick={onOpenModal}>
               <div className={`${styles.scenarioIconWrapper} ${styles[item.colorClass]}`}>
                 <Icon size={20} />
               </div>

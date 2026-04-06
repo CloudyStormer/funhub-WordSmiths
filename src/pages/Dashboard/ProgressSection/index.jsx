@@ -2,7 +2,7 @@ import React from 'react';
 import { Play } from 'lucide-react';
 import styles from './index.module.scss';
 
-const ProgressSection = ({ days = 12, progress = 85 }) => {
+const ProgressSection = ({ days = 12, progress = 85, onOpenModal }) => {
   return (
     <section data-cmp="ProgressSection" className={styles.section}>
       <div className={styles.greetingBox}>
@@ -28,7 +28,7 @@ const ProgressSection = ({ days = 12, progress = 85 }) => {
             style={{ '--progress': `${progress}%` }}
           />
         </div>
-        <button className={styles.primaryBtn}>
+        <button className={styles.primaryBtn} onClick={onOpenModal}>
           <Play size={18} fill="currentColor" />
           快速开始学习
         </button>

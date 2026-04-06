@@ -8,7 +8,7 @@ const tabs = [
   { id: 'retrospective', label: '复盘', icon: BookOpen },
 ];
 
-const BottomTabBar = ({ activeTab, onTabChange }) => {
+const BottomTabBar = ({ activeTab, onTabChange, onOpenModal }) => {
   return (
     <nav className={styles.tabBar}>
       {tabs.map(({ id, label, icon: Icon }) => {
@@ -17,7 +17,10 @@ const BottomTabBar = ({ activeTab, onTabChange }) => {
           <button
             key={id}
             className={`${styles.tabItem} ${isActive ? styles.active : ''}`}
-            onClick={() => onTabChange(id)}
+            onClick={() => {
+              onTabChange(id);
+              // onOpenModal();
+            }}
           >
             <span className={styles.iconWrap}>
               <Icon size={isActive ? 28 : 22} />
