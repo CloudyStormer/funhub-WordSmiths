@@ -5,6 +5,7 @@ import RetrospectivePage from '../Retrospective';
 import Dashboard from '../Dashboard';
 import SchedulePage from '../Schedule';
 import VocabPickerModal from '../Dashboard/VocabPickerModal';
+import LearningReadiness from '../LearningReadiness';
 import styles from './index.module.scss';
 
 const Frame = () => {
@@ -12,22 +13,30 @@ const Frame = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [activeVocab, setActiveVocab] = useState(null);
   const [pendingTab, setPendingTab] = useState(null);
+  const [showLearning, setShowLearning] = useState(false);
+  const [learningSceneId, setLearningSceneId] = useState('office');
 
-  // 只有 Header 用这个 —— 始终弹窗（重新选词库）
+  // Header 始终可弹窗换词库
   const openModalAlways = () => setModalVisible(true);
 
-  // 其他触发点用这个 —— 已选词库则直接执行，不弹窗
-  const openModalIfNoVocab = (onConfirmed) => {
+  const SCENE_IDS = ['office', 'contract', 'travel'];
+  const randomScene = () => SCENE_IDS[Math.floor(Math.random() * SCENE_IDS.length)];
+
+  // 进入学习准备页（已选词库直接跳；未选先弹窗）
+  const goToLearning = (sceneId) => {
+    const id = sceneId || randomScene();
     if (activeVocab) {
-      onConfirmed?.();
+      setLearningSceneId(id);
+      setShowLearning(true);
     } else {
       setModalVisible(true);
     }
   };
 
-  // Tab 切换：未选词库先弹窗并记录目标 tab
+  // Tab 切换：未选词库先弹窗
   const handleTabChange = (id) => {
     if (activeVocab) {
+      setShowLearning(false);
       setActiveTab(id);
     } else {
       setPendingTab(id);
@@ -45,13 +54,23 @@ const Frame = () => {
   };
 
   const renderContent = () => {
+    if (showLearning) {
+      return (
+        <LearningReadiness
+          sceneId={learningSceneId}
+          onBack={() => setShowLearning(false)}
+          onStart={() => setShowLearning(false)}
+        />
+      );
+    }
     switch (activeTab) {
       case 'schedule':      return <SchedulePage />;
       case 'retrospective': return <RetrospectivePage />;
       default:
         return (
           <Dashboard
-            onOpenModal={() => openModalIfNoVocab()}
+            onOpenModal={() => goToLearning('office')}
+            onSelectScenario={(id) => goToLearning(id)}
           />
         );
     }
@@ -60,11 +79,15 @@ const Frame = () => {
   return (
     <div className={styles.appContainer}>
       <div className={styles.mobileWrapper}>
-        <Header activeVocab={activeVocab} onOpenModal={openModalAlways} />
+        {!showLearning && (
+          <Header activeVocab={activeVocab} onOpenModal={openModalAlways} />
+        )}
         <main className={styles.mainContent}>
           {renderContent()}
         </main>
-        <BottomTabBar activeTab={activeTab} onTabChange={handleTabChange} />
+        {!showLearning && (
+          <BottomTabBar activeTab={activeTab} onTabChange={handleTabChange} />
+        )}
         <VocabPickerModal
           visible={modalVisible}
           activeVocab={activeVocab}

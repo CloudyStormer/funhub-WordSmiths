@@ -3,15 +3,15 @@ import { Star, Users, Briefcase, Presentation, RefreshCw } from 'lucide-react';
 import styles from './index.module.scss';
 
 const allScenarios = [
-  { title: '会议主持', icon: Users,         colorClass: 'purple' },
-  { title: '客户谈判', icon: Briefcase,     colorClass: 'green'  },
-  { title: '项目汇报', icon: Presentation,  colorClass: 'orange' },
-  { title: '团队协作', icon: Users,         colorClass: 'green'  },
-  { title: '商务洽谈', icon: Briefcase,     colorClass: 'purple' },
-  { title: '成果展示', icon: Presentation,  colorClass: 'orange' },
-  { title: '面试对话', icon: Users,         colorClass: 'orange' },
-  { title: '跨部门沟通', icon: Briefcase,   colorClass: 'purple' },
-  { title: '培训演讲', icon: Presentation,  colorClass: 'green'  },
+  { id: 'office',   title: '会议主持',   icon: Users,         colorClass: 'purple' },
+  { id: 'contract', title: '客户谈判',   icon: Briefcase,     colorClass: 'green'  },
+  { id: 'travel',   title: '商务拜访',   icon: Presentation,  colorClass: 'orange' },
+  { id: 'office',   title: '团队协作',   icon: Users,         colorClass: 'green'  },
+  { id: 'contract', title: '商务洽谈',   icon: Briefcase,     colorClass: 'purple' },
+  { id: 'travel',   title: '成果展示',   icon: Presentation,  colorClass: 'orange' },
+  { id: 'office',   title: '面试对话',   icon: Users,         colorClass: 'orange' },
+  { id: 'contract', title: '跨部门沟通', icon: Briefcase,     colorClass: 'purple' },
+  { id: 'travel',   title: '培训演讲',   icon: Presentation,  colorClass: 'green'  },
 ];
 
 const pickThree = (exclude) => {
@@ -20,7 +20,7 @@ const pickThree = (exclude) => {
   return shuffled.slice(0, 3);
 };
 
-const ScenarioSection = ({ onOpenModal }) => {
+const ScenarioSection = ({ onOpenModal, onSelectScenario }) => {
   const [current, setCurrent] = useState(allScenarios.slice(0, 3));
   const [spinning, setSpinning] = useState(false);
 
@@ -51,7 +51,7 @@ const ScenarioSection = ({ onOpenModal }) => {
         {current.map((item, index) => {
           const Icon = item.icon;
           return (
-            <div key={item.title + index} className={styles.scenarioCard} onClick={onOpenModal}>
+            <div key={item.title + index} className={styles.scenarioCard} onClick={() => onSelectScenario ? onSelectScenario(item.id) : onOpenModal?.()}>
               <div className={`${styles.scenarioIconWrapper} ${styles[item.colorClass]}`}>
                 <Icon size={20} />
               </div>

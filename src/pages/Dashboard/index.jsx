@@ -4,10 +4,10 @@ import ScenarioSection from './ScenarioSection';
 import MemorySection from './MemorySection';
 import ReviewSection from './ReviewSection';
 
-const Dashboard = ({ onOpenModal }) => (
+const Dashboard = ({ onOpenModal, onSelectScenario }) => (
   <>
     <ProgressSection onOpenModal={onOpenModal} />
-    <ScenarioSection onOpenModal={onOpenModal} />
+    <ScenarioSection onOpenModal={onOpenModal} onSelectScenario={onSelectScenario} />
     <MemorySection />
     <ReviewSection />
   </>
